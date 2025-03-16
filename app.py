@@ -1,9 +1,4 @@
 # repita os passos manuais, usando código:
-
-
-
-# 4 - repetir para todos os produtos da pagina
-# 5 - guardar informações em arquivo de texto (CSV)
 # XPATXH(identificador de elementos no site)
 #//tag[@atributo='valor']
 
@@ -22,7 +17,8 @@ produtos = driver.find_elements(By.XPATH,"//h3[@class='text-base text-gray-900 l
 
 # 3 - anotar os preços dos produtos
 precos = driver.find_elements(By.XPATH, "//span[@class='text-2xl font-bold text-gray-900']")
-
+# 4 - repetir para todos os produtos da pagina
+# 5 - guardar informações em arquivo de texto (CSV)
 for produto, precos in zip(produtos,precos):
     with open('preços.csv','a', encoding='utf-8') as arquivo:
         arquivo.write(f'{produto.text},{precos.text}{os.linesep}')
